@@ -8,6 +8,17 @@
     margin: 0 auto;
 }
 
+.block {
+    display: block;
+}
+
+.register-form {
+    padding: 20px 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 300px;
+    margin: 50px auto; 
+}
 
 .register-form label {
     display: block;
@@ -27,7 +38,7 @@
     outline: none;
 }
 
-.register-form input[type="submit"] {
+#submitBtn {
     padding: 5px 10px;
     border: none;
     color: white;
@@ -36,17 +47,41 @@
     font-size: 15px;
 }
 
-.register-form input[type="submit"]:hover {
+#submitBtn:hover {
     background-color: rgb(0, 204, 0);
     cursor: pointer;
 }
 
-.register-form input[type="submit"]:active {
+#submitBtn:active {
+    background-color: rgb(0, 102, 0);
+}
+
+.submitBtn {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 126, 0);
+    border-radius: 0;
+    font-size: 15px;
+    margin-bottom: 30px;
+    width: 100px;
+}
+
+.submitBtn:hover {
+    background-color: rgb(0, 204, 0);
+    cursor: pointer;
+}
+
+.submitBtn:active {
     background-color: rgb(0, 102, 0);
 }
 
 .input-block {
     text-align: center;
+}
+
+#errMsg {
+    color: red;
 }
 
 #form { 

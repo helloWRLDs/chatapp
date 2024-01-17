@@ -14,7 +14,6 @@ const { verifyToken } = require('./services/middleWare');
 const io = new Server(server)
 
 
-
 // Body encoder
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
@@ -55,12 +54,12 @@ app.get(`/chat`, verifyToken, (req, res) => {
 app.post(`/register`, (req, res) => {
     addUser(req, connection, (error, result) => {
         if (error) {
-            console.log(error)
+            res.status(401).json({error: 'Registration failed!'})
         } else {
             console.log(result)
+            res.redirect(`/login`)
         }
     })
-    res.redirect(`/`)
 })
 
 app.get(`/login`, (req, res) => {
@@ -89,10 +88,10 @@ app.post(`/login`, (req, res) => {
 
 // Sockets for chat
 io.on('connection', (socket) => {
-    console.log(`a user connected`)
+    console.log(`someone connected`)
     console.log(socket.request.userId)
     socket.on('disconnect', () => {
-        console.log('a user disconnected')
+        console.log('someone disconnected')
     })
 })
 

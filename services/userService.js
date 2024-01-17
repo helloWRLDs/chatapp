@@ -56,7 +56,6 @@ addUser = (req, connection, callback) => {
             callback(error, null)
         }
         if (result) {
-            // console.log(`user already exists`)
             callback(new Error("User already exist", null))
         } else {
             bcrypt.hash(req.body.password, 10, (error, hashedPassword) => {
